@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Расходы на авто</string>
+    <string name="empty_cars_list">Не добавлено ни одного автомобиля</string>
+    <string name="car_brand_hint">Бренд</string>
+    <string name="car_model_hint">Модель</string>
+    <string name="bn_save">Сохранить</string>
+    <string name="car_mileage_hint">Пробег на текущий момент</string>
+    <string name="car_year_hint">Год выпуска</string>
+    <string name="bn_select_year">Выбрать год выпуска</string>
+    <string name="delete">Удалить</string>
+</resources>
