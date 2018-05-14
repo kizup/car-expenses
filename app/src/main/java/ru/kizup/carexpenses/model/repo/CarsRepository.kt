@@ -13,7 +13,7 @@ import ru.kizup.carexpenses.utils.RxUtils
  */
 object CarsRepository {
 
-    val carsDao = DatabaseCreator.mDatabase.carsDao()
+    private val carsDao = DatabaseCreator.mDatabase.carsDao()
 
     fun getCarsCount() = Flowable.fromCallable { carsDao.getCarsCount() }
             .compose(RxUtils.computationToUiFlowable())

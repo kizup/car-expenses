@@ -5,6 +5,7 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.fragment_add_car.*
 import ru.kizup.carexpenses.R
 import ru.kizup.carexpenses.view.base.BaseFragment
+import ru.kizup.carexpenses.view.yearpicker.YearPickerBottomDialog
 import ru.kizup.carexpenses.viewmodel.AddCarViewModel
 
 /**
@@ -36,7 +37,17 @@ class AddCarFragment : BaseFragment<AddCarViewModel>() {
                 })
 
         bnSaveCar.setOnClickListener {
-            mViewModel.saveCar(etCarBrand.text.toString(), etCarModel.text.toString(), 2007)
+            mViewModel.saveCar(etCarBrand.text.toString(),
+                    etCarModel.text.toString(),
+                    etCarMileage.text.toString())
+        }
+        bnSelectYear.setOnClickListener {
+            YearPickerBottomDialog.Builder.withListener(object : YearPickerBottomDialog.OnYearSelectedListener {
+                override fun onYearSelected(year: Int) {
+                    tvCarYear.text = year.toString()
+                    mViewModel.onYearSelected(year)
+                }
+            }).show(childFragmentManager)
         }
     }
 

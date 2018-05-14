@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 object DatabaseCreator {
 
     val isDbCreated = MutableLiveData<Boolean>()
-    lateinit var mDatabase: CarsDatabase
+    lateinit var mDatabase: AppDatabase
     private val mInitializing = AtomicBoolean(true)
 
     fun createDb(context: Context) {
@@ -24,7 +24,7 @@ object DatabaseCreator {
         }
         isDbCreated.value = false
         Completable.fromAction {
-            mDatabase = Room.databaseBuilder(context, CarsDatabase::class.java, CarsDatabase.DATABASE_NAME)
+            mDatabase = Room.databaseBuilder(context, AppDatabase::class.java, AppDatabase.DATABASE_NAME)
                     .build()
         }.compose(RxUtils.computationToUiCompletable())
                 .subscribe({
