@@ -3,7 +3,7 @@ package ru.kizup.carexpenses.model.repo.db.dao
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
 import ru.kizup.carexpenses.model.repo.db.entity.CarEntity
-import ru.kizup.carexpenses.model.repo.db.entity.NAME
+import ru.kizup.carexpenses.model.repo.db.entity.CarEntity.Companion.NAME
 
 /**
  * Created by: dpuzikov on 13.05.18.

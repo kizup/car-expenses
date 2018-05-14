@@ -47,6 +47,7 @@
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/etCarMileage"
+                android:inputType="numberSigned"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true" />

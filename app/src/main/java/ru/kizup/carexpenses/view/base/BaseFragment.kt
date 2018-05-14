@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
+import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,12 +28,12 @@ abstract class BaseFragment<T: BaseViewModel>: Fragment() {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         mBaseActivity = context as BaseActivity
+        mViewModel = ViewModelProviders.of(this)
+                .get(mClassToken)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mViewModel = ViewModelProviders.of(this)
-                .get(mClassToken)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -43,4 +44,9 @@ abstract class BaseFragment<T: BaseViewModel>: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         onPostCreated(savedInstanceState)
     }
+
+    protected fun setToolbar(toolbar: Toolbar) {
+        mBaseActivity.setSupportActionBar(toolbar)
+    }
+
 }

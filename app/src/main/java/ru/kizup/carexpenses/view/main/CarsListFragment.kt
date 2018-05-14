@@ -12,6 +12,7 @@ import ru.kizup.carexpenses.R
 import ru.kizup.carexpenses.model.repo.db.entity.CarEntity
 import ru.kizup.carexpenses.view.addcar.AddCarActivity
 import ru.kizup.carexpenses.view.base.BaseFragment
+import ru.kizup.carexpenses.view.carview.CarViewActivity
 import ru.kizup.carexpenses.viewmodel.CarsListViewModel
 
 /**
@@ -63,7 +64,7 @@ class CarsListFragment : BaseFragment<CarsListViewModel>(), CarsListAdapter.List
     }
 
     override fun onItemClick(car: CarEntity) {
-        Toast.makeText(mBaseActivity, "${car.brand} ${car.model}", Toast.LENGTH_SHORT).show()
+        startActivity(CarViewActivity.buildIntent(mBaseActivity, car))
     }
 
     override fun onRemoveClick(car: CarEntity) {
